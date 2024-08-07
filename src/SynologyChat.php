@@ -18,7 +18,7 @@ class SynologyChat
     protected $httpClient;
 
     /**
-     * @param \GuzzleHttp\Client $http
+     * @param  \GuzzleHttp\Client  $http
      */
     public function __construct(HttpClient $http)
     {
@@ -28,12 +28,11 @@ class SynologyChat
     /**
      * Send a message to a SynologyChat channel.
      *
-     * @param string $url
-     * @param array $data
+     * @param  string  $url
+     * @param  array  $data
+     * @return ResponseInterface|null
      *
      * @throws CouldNotSendNotification
-     *
-     * @return ResponseInterface|null
      */
     public function send(string $url, array $data): ?ResponseInterface
     {

@@ -13,8 +13,7 @@ class SynologyChatMessage
     protected $webhookUrl = null;
 
     /**
-     * @param string $content
-     *
+     * @param  string  $content
      * @return self
      */
     public static function create(string $content = ''): self
@@ -25,7 +24,7 @@ class SynologyChatMessage
     /**
      * Message constructor.
      *
-     * @param string $content
+     * @param  string  $content
      */
     public function __construct(string $content = '')
     {
@@ -39,9 +38,8 @@ class SynologyChatMessage
     /**
      * Set a title.
      *
-     * @param string $title - title
-     * @param array $params - optional section can be defined (e.g. [$section = '1'].
-     *
+     * @param  string  $title  - title
+     * @param  array  $params  - optional section can be defined (e.g. [$section = '1'].
      * @return SynologyChatMessage $this
      */
     public function title(string $title, array $params = []): self
@@ -61,8 +59,7 @@ class SynologyChatMessage
     /**
      * Set a summary.
      *
-     * @param string $summary - summary
-     *
+     * @param  string  $summary  - summary
      * @return SynologyChatMessage $this
      */
     public function summary(string $summary): self
@@ -75,8 +72,7 @@ class SynologyChatMessage
     /**
      * Add a type which is used as theme color.
      *
-     * @param string $type - type of the card
-     *
+     * @param  string  $type  - type of the card
      * @return SynologyChatMessage $this
      */
     public function type(string $type): self
@@ -89,9 +85,8 @@ class SynologyChatMessage
     /**
      * Notification message (Supports Markdown).
      *
-     * @param string $content
-     * @param array $params - optional section can be defined (e.g. [$section = '1'].
-     *
+     * @param  string  $content
+     * @param  array  $params  - optional section can be defined (e.g. [$section = '1'].
      * @return SynologyChatMessage $this
      */
     public function content(string $content, array $params = []): self
@@ -110,20 +105,18 @@ class SynologyChatMessage
     /**
      * Add an action.
      *
-     * @param string $name - name of the action
-     * @param string $type - defaults to 'OpenUri' should be one of the following types:
-     *  - OpenUri: Opens a URI in a separate browser or app; optionally targets different URIs based on operating systems
-     *  - HttpPOST: Sends a POST request to a URL
-     *  - ActionCard: Presents one or more input types and associated actions
-     *  - InvokeAddInCommand: Opens an Outlook add-in task pane.
-     * * @param array $params - optional params (needed for complex types and for section)
-     * For more information check out: https://docs.microsoft.com/en-us/outlook/actionable-messages/message-card-reference
-     *
+     * @param  string  $name  - name of the action
+     * @param  string  $type  - defaults to 'OpenUri' should be one of the following types:
+     *                        - OpenUri: Opens a URI in a separate browser or app; optionally targets different URIs based on operating systems
+     *                        - HttpPOST: Sends a POST request to a URL
+     *                        - ActionCard: Presents one or more input types and associated actions
+     *                        - InvokeAddInCommand: Opens an Outlook add-in task pane.
+     *                        * @param array $params - optional params (needed for complex types and for section)
+     *                        For more information check out: https://docs.microsoft.com/en-us/outlook/actionable-messages/message-card-reference
      * @return SynologyChatMessage $this
      */
     public function action(string $name, $type = 'OpenUri', array $params = []): self
     {
-
         // fill required values for all types
         $newAction = [
             '@type' => $type,
@@ -152,21 +145,19 @@ class SynologyChatMessage
      * Add a button.
      * Wrapper for a potential action by just providing $text and $url params.
      *
-     * @param string $text - label of the button
-     * @param string $url - url to forward to
-     * @param array $params - optional params (needed for more complex types  and for section)
-     * For more information check out: https://docs.microsoft.com/en-us/outlook/actionable-messages/message-card-reference#openuri-action
-     *
+     * @param  string  $text  - label of the button
+     * @param  string  $url  - url to forward to
+     * @param  array  $params  - optional params (needed for more complex types  and for section)
+     *                         For more information check out: https://docs.microsoft.com/en-us/outlook/actionable-messages/message-card-reference#openuri-action
      * @return SynologyChatMessage $this
      */
     public function button(string $text, string $url = '', array $params = []): self
     {
-
         // fill targets that is needed for a button
         $newButton = [
             'targets' => [
                 (object) [
-                    'os'=> 'default',
+                    'os' => 'default',
                     'uri' => $url,
                 ],
             ],
@@ -185,8 +176,7 @@ class SynologyChatMessage
     /**
      * Add a startGroup property which marks the start of a logical group of information (only for sections).
      *
-     * @param string|int $sectionId - in which section to put the property, defaults to standard_section
-     *
+     * @param  string|int  $sectionId  - in which section to put the property, defaults to standard_section
      * @return SynologyChatMessage $this
      */
     public function addStartGroupToSection($sectionId = 'standard_section'): self
@@ -199,12 +189,11 @@ class SynologyChatMessage
     /**
      * Add an activity to a section.
      *
-     * @param string $activityImage
-     * @param string $activityTitle
-     * @param string $activitySubtitle
-     * @param string $activityText
-     * @param string|int $sectionId - in which section to put the property, defaults to standard_section
-     *
+     * @param  string  $activityImage
+     * @param  string  $activityTitle
+     * @param  string  $activitySubtitle
+     * @param  string  $activityText
+     * @param  string|int  $sectionId  - in which section to put the property, defaults to standard_section
      * @return SynologyChatMessage $this
      */
     public function activity(string $activityImage = '', string $activityTitle = '', string $activitySubtitle = '', string $activityText = '', $sectionId = 'standard_section'): self
@@ -220,10 +209,9 @@ class SynologyChatMessage
     /**
      * Add a fact to a section (Supports Markdown).
      *
-     * @param string $name
-     * @param string $value
-     * @param string|int $sectionId - in which section to put the property, defaults to standard_section
-     *
+     * @param  string  $name
+     * @param  string  $value
+     * @param  string|int  $sectionId  - in which section to put the property, defaults to standard_section
      * @return SynologyChatMessage $this
      */
     public function fact(string $name, string $value, $sectionId = 'standard_section'): self
@@ -237,10 +225,9 @@ class SynologyChatMessage
     /**
      * Add an image to a section.
      *
-     * @param string $imageUri - The URL to the image.
-     * @param string $title - A short description of the image. Typically, title is displayed in a tooltip as the user hovers their mouse over the image
-     * @param string|int $sectionId - in which section to put the property, defaults to standard_section
-     *
+     * @param  string  $imageUri  - The URL to the image.
+     * @param  string  $title  - A short description of the image. Typically, title is displayed in a tooltip as the user hovers their mouse over the image
+     * @param  string|int  $sectionId  - in which section to put the property, defaults to standard_section
      * @return SynologyChatMessage $this
      */
     public function image(string $imageUri, string $title = '', $sectionId = 'standard_section'): self
@@ -257,10 +244,9 @@ class SynologyChatMessage
     /**
      * Add a hero image to a section.
      *
-     * @param string $imageUri - The URL to the image.
-     * @param string $title - A short description of the image. Typically, title is displayed in a tooltip as the user hovers their mouse over the image
-     * @param string|int $sectionId - in which section to put the property, defaults to standard_section
-     *
+     * @param  string  $imageUri  - The URL to the image.
+     * @param  string  $title  - A short description of the image. Typically, title is displayed in a tooltip as the user hovers their mouse over the image
+     * @param  string|int  $sectionId  - in which section to put the property, defaults to standard_section
      * @return SynologyChatMessage $this
      */
     public function heroImage(string $imageUri, string $title = '', $sectionId = 'standard_section'): self
@@ -277,9 +263,8 @@ class SynologyChatMessage
     /**
      * Additional options to pass to message payload object.
      *
-     * @param array $options
-     * @param string|int $sectionId - optional in which section to put the property
-     *
+     * @param  array  $options
+     * @param  string|int  $sectionId  - optional in which section to put the property
      * @return SynologyChatMessage $this
      */
     public function options(array $options, $sectionId = null): self
@@ -295,11 +280,10 @@ class SynologyChatMessage
     /**
      * Recipient's webhook url.
      *
-     * @param $webhookUrl - url of webhook
+     * @param  $webhookUrl  - url of webhook
+     * @return SynologyChatMessage $this
      *
      * @throws CouldNotSendNotification
-     *
-     * @return SynologyChatMessage $this
      */
     public function to(?string $webhookUrl): self
     {
@@ -334,8 +318,7 @@ class SynologyChatMessage
     /**
      * Get payload value for given key.
      *
-     * @param string $key
-     *
+     * @param  string  $key
      * @return mixed|null
      */
     public function getPayloadValue(string $key)
@@ -347,8 +330,7 @@ class SynologyChatMessage
      * Generate a colour code use given by name of type, fallback to primary
      * if named color not found the type should be a hex color code.
      *
-     * @param string $type
-     *
+     * @param  string  $type
      * @return string
      */
     private function generateThemeColourCode($type = 'primary'): string
