@@ -14,7 +14,7 @@ class SynologyChatChannel
     /**
      * Channel constructor.
      *
-     * @param SynologyChat $synologyChat
+     * @param  SynologyChat  $synologyChat
      */
     public function __construct(SynologyChat $synologyChat)
     {
@@ -24,9 +24,8 @@ class SynologyChatChannel
     /**
      * Send the given notification.
      *
-     * @param mixed $notifiable
-     * @param Notification $notification
-     *
+     * @param  mixed  $notifiable
+     * @param  Notification  $notification
      * @return \Psr\Http\Message\ResponseInterface|null
      */
     public function send($notifiable, Notification $notification)
