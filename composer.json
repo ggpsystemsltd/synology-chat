@@ -1,0 +1,50 @@
+{
+    "name": "laravel-notification-channels/synology-chat",
+    "description": "A Laravel Notification Channel for Synology Chat",
+    "homepage": "https://github.com/laravel-notification-channels/synology-chat",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Murray Crane",
+            "email": "murray.crane@ggpsystems.co.uk",
+            "homepage": "https://www.ggpsystems.co.uk",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "guzzlehttp/guzzle": "^6.3 || ^7.0",
+        "illuminate/notifications": "~5.5 || ~6.0 || ~7.0 || ^8.0 || ^9.0 || ^10.0 || ^11.0",
+        "illuminate/support": "~5.5 || ~6.0 || ~7.0 || ^8.0 || ^9.0 || ^10.0 || ^11.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.2.3",
+        "phpunit/phpunit": "^8.0 || ^9.5 || ^10.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "NotificationChannels\\SynologyChat\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "NotificationChannels\\SynologyChat\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test:coverage": "phpunit --coverage-text --coverage-clover=coverage.clover"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "NotificationChannels\\SynologyChat\\SynologyChatServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
