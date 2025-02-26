@@ -19,6 +19,8 @@
         "illuminate/support": "^11.0|^12.0"
     },
     "require-dev": {
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.0",
         "mockery/mockery": "^1.5.1",
         "phpunit/phpunit": "^11.0"
     },
@@ -33,6 +35,8 @@
         }
     },
     "scripts": {
+        "analyse": "vendor/bin/phpstan analyse src | tee larastan.out",
+        "pint": "vendor/bin/pint",
         "test": "phpunit",
         "test:coverage": "phpunit --coverage-text --coverage-clover=coverage.clover"
     },
