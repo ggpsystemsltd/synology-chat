@@ -35,7 +35,7 @@
         }
     },
     "scripts": {
-        "analyse": "vendor/bin/phpstan analyse src | tee larastan.out",
+        "analyse": "vendor/bin/phpstan analyse | tee larastan.out",
         "pint": "vendor/bin/pint",
         "test": "phpunit",
         "test:coverage": "phpunit --coverage-text --coverage-clover=coverage.clover"
