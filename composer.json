@@ -1,5 +1,6 @@
 {
     "name": "laravel-notification-channels/synology-chat",
+    "version": "1.1.0",
     "description": "A Laravel Notification Channel for Synology Chat",
     "homepage": "https://github.com/laravel-notification-channels/synology-chat",
     "license": "BSD-3-Clause",
@@ -12,14 +13,14 @@
         }
     ],
     "require": {
-        "php": ">=7.2",
-        "guzzlehttp/guzzle": "^6.3 || ^7.0",
-        "illuminate/notifications": "~5.5 || ~6.0 || ~7.0 || ^8.0 || ^9.0 || ^10.0 || ^11.0",
-        "illuminate/support": "~5.5 || ~6.0 || ~7.0 || ^8.0 || ^9.0 || ^10.0 || ^11.0"
+        "php": "^8.2",
+        "guzzlehttp/guzzle": "^7.0",
+        "illuminate/notifications": "^11.0|^12.0",
+        "illuminate/support": "^11.0|^12.0"
     },
     "require-dev": {
-        "mockery/mockery": "^1.2.3",
-        "phpunit/phpunit": "^8.0 || ^9.5 || ^10.5"
+        "mockery/mockery": "^1.5.1",
+        "phpunit/phpunit": "^11.0"
     },
     "autoload": {
         "psr-4": {

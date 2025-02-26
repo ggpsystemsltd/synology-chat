@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/License-BSD_3--Clause-brightgreen.svg?style=flat-square)](LICENSE)
 
-This package makes it easy to send notifications using [Synology Chat](https://www.synology.com/en-global/dsm/feature/chat) with Laravel 5.5+, 6.x, 7.x, 8.x, 9.x and 10.x
+This package makes it easy to send notifications using [Synology Chat](https://www.synology.com/en-global/dsm/feature/chat) with Laravel 11.x and above
 
 ```php
 return SynologyChatMessage::create()
@@ -163,17 +163,18 @@ $ composer test
 
 ## Security
 
-If you discover any security related issues, please email tobias.madner@gmx.at instead of using the issue tracker.
+If you discover any security related issues, please email murray.crane@ggpsystems.co.uk instead of using the issue tracker.
 
 ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Credits
+This channel is based on the Microsoft Teams notification channel. 
 
 - [Tobias Madner](https://github.com/Tob0t)
 - [All Contributors](../../contributors)
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+The BSD 3-clause licence. Please see [License File](LICENSE) for more information.
