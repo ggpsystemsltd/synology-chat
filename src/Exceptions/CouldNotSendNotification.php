@@ -14,13 +14,13 @@ final class CouldNotSendNotification extends \Exception
     public static function synologyChatRespondedWithAnError(ClientException $exception)
     {
         if (! $exception->hasResponse()) {
-            return new static('Synology Chat responded with an error but no response body found');
+            return new self('Synology Chat responded with an error but no response body found');
         }
 
         $statusCode = $exception->getResponse()->getStatusCode();
         $description = $exception->getMessage();
 
-        return new static("Synology Chat responded with an error `{$statusCode} - {$description}`");
+        return new self("Synology Chat responded with an error `{$statusCode} - {$description}`");
     }
 
     /**
@@ -30,7 +30,7 @@ final class CouldNotSendNotification extends \Exception
      */
     public static function couldNotCommunicateWithSynologyChat(\Exception $exception)
     {
-        return new static("The communication with Synology Chat failed. `{$exception->getMessage()}`");
+        return new self("The communication with Synology Chat failed. `{$exception->getMessage()}`");
     }
 
     /**
@@ -40,6 +40,6 @@ final class CouldNotSendNotification extends \Exception
      */
     public static function synologyChatWebhookUrlMissing()
     {
-        return new static('Synology Chat webhook url is missing. Please add it as param over the SynologyChatMessage::to($url) method or return it in the notifiable model by providing the method Model::routeNotificationForSynologyChat().');
+        return new self('Synology Chat webhook url is missing. Please add it as param over the SynologyChatMessage::to($url) method or return it in the notifiable model by providing the method Model::routeNotificationForSynologyChat().');
     }
 }
