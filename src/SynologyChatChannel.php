@@ -3,6 +3,7 @@
 namespace NotificationChannels\SynologyChat;
 
 use Illuminate\Notifications\Notification;
+use NotificationChannels\SynologyChat\Exceptions\CouldNotSendNotification;
 
 class SynologyChatChannel
 {
@@ -22,15 +23,17 @@ class SynologyChatChannel
     /**
      * Send the given notification.
      *
-     * @param  mixed  $notifiable
+     * @param mixed $notifiable
      * @return \Psr\Http\Message\ResponseInterface|null
+     *
+     * @throws CouldNotSendNotification
      */
     public function send($notifiable, Notification $notification)
     {
         $message = $notification->toSynologyChat($notifiable);
 
         if (! $message instanceof SynologyChatMessage) {
-            return;
+            return null;
         }
 
         // if the recipient is not defined get it from the notifiable object
