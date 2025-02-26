@@ -23,7 +23,7 @@ class SynologyChatChannel
     /**
      * Send the given notification.
      *
-     * @param mixed $notifiable
+     * @param  mixed  $notifiable
      * @return \Psr\Http\Message\ResponseInterface|null
      *
      * @throws CouldNotSendNotification
