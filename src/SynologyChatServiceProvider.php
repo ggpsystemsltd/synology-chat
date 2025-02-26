@@ -20,7 +20,7 @@ class SynologyChatServiceProvider extends ServiceProvider
             ->needs(SynologyChat::class)
             ->give(static function () {
                 return new SynologyChat(
-                    new HttpClient()
+                    new HttpClient
                 );
             });
     }

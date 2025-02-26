@@ -12,10 +12,6 @@ class SynologyChatMessage
     /** @var string webhook url of recipient. */
     protected $webhookUrl = null;
 
-    /**
-     * @param  string  $content
-     * @return self
-     */
     public static function create(string $content = ''): self
     {
         return new self($content);
@@ -23,8 +19,6 @@ class SynologyChatMessage
 
     /**
      * Message constructor.
-     *
-     * @param  string  $content
      */
     public function __construct(string $content = '')
     {
@@ -85,7 +79,6 @@ class SynologyChatMessage
     /**
      * Notification message (Supports Markdown).
      *
-     * @param  string  $content
      * @param  array  $params  - optional section can be defined (e.g. [$section = '1'].
      * @return SynologyChatMessage $this
      */
@@ -189,10 +182,6 @@ class SynologyChatMessage
     /**
      * Add an activity to a section.
      *
-     * @param  string  $activityImage
-     * @param  string  $activityTitle
-     * @param  string  $activitySubtitle
-     * @param  string  $activityText
      * @param  string|int  $sectionId  - in which section to put the property, defaults to standard_section
      * @return SynologyChatMessage $this
      */
@@ -209,8 +198,6 @@ class SynologyChatMessage
     /**
      * Add a fact to a section (Supports Markdown).
      *
-     * @param  string  $name
-     * @param  string  $value
      * @param  string|int  $sectionId  - in which section to put the property, defaults to standard_section
      * @return SynologyChatMessage $this
      */
@@ -263,7 +250,6 @@ class SynologyChatMessage
     /**
      * Additional options to pass to message payload object.
      *
-     * @param  array  $options
      * @param  string|int  $sectionId  - optional in which section to put the property
      * @return SynologyChatMessage $this
      */
@@ -307,8 +293,6 @@ class SynologyChatMessage
 
     /**
      * Determine if webhook url is not given.
-     *
-     * @return bool
      */
     public function toNotGiven(): bool
     {
@@ -318,7 +302,6 @@ class SynologyChatMessage
     /**
      * Get payload value for given key.
      *
-     * @param  string  $key
      * @return mixed|null
      */
     public function getPayloadValue(string $key)
@@ -331,7 +314,6 @@ class SynologyChatMessage
      * if named color not found the type should be a hex color code.
      *
      * @param  string  $type
-     * @return string
      */
     private function generateThemeColourCode($type = 'primary'): string
     {
@@ -350,8 +332,6 @@ class SynologyChatMessage
 
     /**
      * Returns params payload.
-     *
-     * @return array
      */
     public function toArray(): array
     {
