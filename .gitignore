@@ -1,0 +1,6 @@
+.phpunit.cache/
+vendor/
+larastan.out
+.fleet/
+.idea/
+.vscode/
